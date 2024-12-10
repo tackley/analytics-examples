@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+
+  <!-- Google Tag Manager -->
+<script is:inline slot="head">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5MHWC3NR');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MHWC3NR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+ 
+<main class="prose">
+<h1>GA4: GTM (third party)</h1>
+
+<p>This page is tagged up using the google tag included via third party GTM, <a href="https://developers.google.com/analytics/devguides/collection/ga4/events?client_type=gtm">as described here</a>.</p>
+
+<a href="/">home</a>
+</main>
+
+</Layout>
