@@ -1,8 +1,20 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<main class="prose">
+		<h1>
+			Analytics examples
+		</h1>
+
+		<h2>Google Analytics</h2>
+		<ul>
+			<li><a href="/ga/gtag3p">third-party gtag.js</a></li>
+			<li><a href="/ga/gtag1p">first-party gtag.js</a></li>
+			<li><a href="/ga/gtm3p">third-party GTM</a></li>
+			<li><a href="/ga/gtm1p">first-party GTM</a></li>
+		</ul>
+	</main>
+
 </Layout>

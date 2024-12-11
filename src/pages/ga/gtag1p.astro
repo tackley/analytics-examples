@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+
+<!-- Google tag (gtag.js) -->
+<script is:inline slot="head" async src="/metricsgtag/?id=G-8S62NVDMP9"></script>
+<script is:inline slot="head">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8S62NVDMP9');
+</script>
+
+<main class="prose">
+	<h1>GA4: gtag.js (first party)</h1>
+
+	<p>This page is tagged up using the GA4 gtag.js included in first party mode <a href="https://developers.google.com/analytics/devguides/collection/ga4/events?client_type=gtag">as described here</a>.</p>
+
+	<a href="/">home</a>
+</main>
+
+</Layout>

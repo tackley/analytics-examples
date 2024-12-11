@@ -1,8 +1,8 @@
-import type { APIRoute } from "astro";
-
-export const prerender = false;
-
-export const ALL: APIRoute = async ({ request, url }) => {
+export async function simpleProxy(
+  targetHost: string,
+  request: Request,
+  requestedUrl: URL
+): Promise<Response> {
   /*
   This is a trivial implementation of a measurement proxy, for experimentation purposes only.
   An real implementation should use a edge-based proxy as described in 
@@ -12,18 +12,29 @@ export const ALL: APIRoute = async ({ request, url }) => {
   */
   const headers = {
     ...Object.fromEntries(Array.from(request.headers)),
-    Host: "GTM-5MHWC3NR.fps.goog",
+    Host: targetHost,
   };
-  const targetUrl = `https://GTM-5MHWC3NR.fps.goog${url.pathname}${url.search}`;
+  const targetUrl = `https://${targetHost}${requestedUrl.pathname}${requestedUrl.search}`;
 
   console.log("fetching", { targetUrl, headers });
   const r = await fetch(targetUrl, {
     headers,
+    method: request.method,
   });
 
+  // fetch transparently decompresses responses, but leaves the encoding header
+  // so return the uncompressed response but remove the header
+  const responseHeaders = Object.fromEntries(Array.from(r.headers));
+  delete responseHeaders["content-encoding"];
+  delete responseHeaders["content-length"];
+
   console.log("returning", {
-    headers: Object.fromEntries(Array.from(r.headers)),
+    headers: responseHeaders,
     status: r.status,
   });
-  return r;
-};
+
+  return new Response(r.body, {
+    headers: responseHeaders,
+    status: r.status,
+  });
+}
