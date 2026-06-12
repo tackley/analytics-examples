@@ -12,7 +12,7 @@
     "@astrojs/cloudflare": "^12.5.4",
     "@tailwindcss/typography": "^0.5.15",
     "@tailwindcss/vite": "^4.1.8",
-    "astro": "^5.9.1",
+    "astro": "^6.1.10",
     "tailwindcss": "^4.1.8"
   },
   "packageManager": "pnpm@10.34.3+sha512.f2c531b08829d7be7f03c90addc266615f9c5477463e4bf1d275cb263ce9ea57cf0d5599110d94649a9bb3fed9f0b5efcea74a7016b61532a24cb9ad87860c1d"
